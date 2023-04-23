@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-nodeapp-completion
+  labels:
+    app: nodeapp-completion
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodeapp-completion
+  template:
+    metadata:
+      labels:
+        app: nodeapp-completion 
+    spec:
+      containers:
+      - name: nodeserver
+        image: thilina9718/nodeapp-completion:latest
+        ports:
+        - containerPort: 3000
